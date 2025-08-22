@@ -49,84 +49,82 @@ export default function DashboardLayout({
         <SidebarContent>
           <SidebarMenu>
             <SidebarMenuItem>
-              <Link href="/dashboard" legacyBehavior passHref>
-                <SidebarMenuButton
-                  isActive={isActive("/dashboard")}
-                  icon={<BookOpen />}
-                  tooltip="Browse"
-                >
-                  Browse
-                </SidebarMenuButton>
-              </Link>
+              <SidebarMenuButton
+                asChild
+                isActive={isActive("/dashboard")}
+                icon={<BookOpen />}
+                tooltip="Browse"
+              >
+                <Link href="/dashboard">Browse</Link>
+              </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <Link href="#" legacyBehavior passHref>
-                <SidebarMenuButton
-                  icon={<Library />}
-                  tooltip="My Library"
-                  aria-disabled
-                  className="cursor-not-allowed opacity-50"
-                >
-                  My Library
-                </SidebarMenuButton>
-              </Link>
+              <SidebarMenuButton
+                asChild
+                icon={<Library />}
+                tooltip="My Library"
+                aria-disabled
+                className="cursor-not-allowed opacity-50"
+              >
+                <Link href="#">My Library</Link>
+              </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <Link href="/dashboard/recommendations" legacyBehavior passHref>
-                <SidebarMenuButton
-                  isActive={isActive("/dashboard/recommendations")}
-                  icon={<Sparkles />}
-                  tooltip="Recommendations"
-                >
-                  AI Recommendations
-                </SidebarMenuButton>
-              </Link>
+              <SidebarMenuButton
+                asChild
+                isActive={isActive("/dashboard/recommendations")}
+                icon={<Sparkles />}
+                tooltip="Recommendations"
+              >
+                <Link href="/dashboard/recommendations">AI Recommendations</Link>
+              </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarContent>
         <SidebarFooter>
           <SidebarMenu>
             <SidebarMenuItem>
-              <Link href="/login" legacyBehavior passHref>
-                <SidebarMenuButton icon={<LogOut />} tooltip="Logout">
-                  Logout
-                </SidebarMenuButton>
-              </Link>
+              <SidebarMenuButton asChild icon={<LogOut />} tooltip="Logout">
+                <Link href="/login">Logout</Link>
+              </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="gap-4 !h-14 group-data-[collapsible=icon]:!p-2"
-                >
-                  <Link href="#">
-                    <Avatar className="size-8">
-                      <AvatarImage src="https://placehold.co/40x40.png" alt="User" />
-                      <AvatarFallback>VR</AvatarFallback>
-                    </Avatar>
-                    <div className="flex w-full flex-col items-start">
-                      <span className="font-medium">User</span>
-                      <span className="text-xs text-muted-foreground">
-                        user@example.com
-                      </span>
-                    </div>
-                  </Link>
-                </SidebarMenuButton>
+              <SidebarMenuButton
+                asChild
+                variant="outline"
+                size="lg"
+                className="gap-4 !h-14 group-data-[collapsible=icon]:!p-2"
+              >
+                <Link href="#">
+                  <Avatar className="size-8">
+                    <AvatarImage
+                      src="https://placehold.co/40x40.png"
+                      alt="User"
+                    />
+                    <AvatarFallback>VR</AvatarFallback>
+                  </Avatar>
+                  <div className="flex w-full flex-col items-start">
+                    <span className="font-medium">User</span>
+                    <span className="text-xs text-muted-foreground">
+                      user@example.com
+                    </span>
+                  </div>
+                </Link>
+              </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarFooter>
       </Sidebar>
       <SidebarInset>
         <header className="flex h-14 items-center gap-4 border-b bg-background/80 backdrop-blur-sm px-4 lg:h-[60px] lg:px-6 sticky top-0 z-40">
-            <SidebarTrigger className="md:hidden" />
-            <div className="w-full flex-1">
-                {/* Can be used for search bar in the future */}
-            </div>
-            <Button variant="ghost" size="icon" className="rounded-full">
-                <Settings className="h-5 w-5" />
-                <span className="sr-only">Settings</span>
-            </Button>
+          <SidebarTrigger className="md:hidden" />
+          <div className="w-full flex-1">
+            {/* Can be used for search bar in the future */}
+          </div>
+          <Button variant="ghost" size="icon" className="rounded-full">
+            <Settings className="h-5 w-5" />
+            <span className="sr-only">Settings</span>
+          </Button>
         </header>
         <main className="flex-1 p-4 md:p-8">{children}</main>
       </SidebarInset>
