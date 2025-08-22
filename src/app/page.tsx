@@ -32,7 +32,7 @@ export default function Home() {
                 </div>
               </div>
               <Image
-                data-ai-hint="books library"
+                data-ai-hint="cozy library"
                 src="https://placehold.co/600x400.png"
                 width="600"
                 height="400"
