@@ -19,7 +19,7 @@ import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Invalid email address." }),
+  mobile: z.string().min(10, { message: "Please enter a valid mobile number." }),
   password: z.string().min(6, { message: "Password must be at least 6 characters." }),
 });
 
@@ -31,7 +31,7 @@ export function SignupForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      email: "",
+      mobile: "",
       password: "",
     },
   });
@@ -63,12 +63,12 @@ export function SignupForm() {
         />
         <FormField
           control={form.control}
-          name="email"
+          name="mobile"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>Mobile Number</FormLabel>
               <FormControl>
-                <Input placeholder="name@example.com" {...field} />
+                <Input placeholder="Mobile Number" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

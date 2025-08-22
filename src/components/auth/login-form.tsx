@@ -18,7 +18,7 @@ import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
-  email: z.string().email({ message: "Invalid email address." }),
+  mobile: z.string().min(10, { message: "Please enter a valid mobile number." }),
   password: z.string().min(6, { message: "Password must be at least 6 characters." }),
 });
 
@@ -29,7 +29,7 @@ export function LoginForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
+      mobile: "",
       password: "",
     },
   });
@@ -48,12 +48,12 @@ export function LoginForm() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <FormField
           control={form.control}
-          name="email"
+          name="mobile"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>Mobile Number</FormLabel>
               <FormControl>
-                <Input placeholder="name@example.com" {...field} />
+                <Input placeholder="Your mobile number" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
